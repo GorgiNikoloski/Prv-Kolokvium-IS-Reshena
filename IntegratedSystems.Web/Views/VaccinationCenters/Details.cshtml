@@ -1,0 +1,61 @@
+﻿@model List<IntegratedSystems.Domain.Domain_Models.Vaccine>
+
+
+
+<a class="btn btn-success w-100" asp-action="AddVaccinedPatient" asp-route-id="@ViewBag.CenterID">Add Vaccined Patient</a>
+<hr />
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                #
+            </th>
+            <th>
+                First Name
+            </th>
+            <th>
+                Last Name
+            </th>
+            <th>
+                Data Taken
+            </th>
+            <th>
+                Center
+            </th>
+            <th>
+                Certificate
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            var i = 1;
+        }
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @i
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PatientFor.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PatientFor.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateTaken)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Center.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Certificate)
+                </td>
+            </tr>
+            i++;
+        }
+    </tbody>
+</table>
+
